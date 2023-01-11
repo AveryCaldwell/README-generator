@@ -27,7 +27,10 @@ function init() {}
 init();
 
 const writeDoc = (result) => {
-  let documentTemplate = `## Table of contents
+  let documentTemplate = `## Description:
+  ### ${result.description}
+  
+  ## Table of contents
 
 - [${result.title}](#overview)
   - [The challenge](#the-challenge)
@@ -42,9 +45,6 @@ const writeDoc = (result) => {
 - [Acknowledgments](#acknowledgments)
 
 
-## Description:
-### ${result.description}
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
