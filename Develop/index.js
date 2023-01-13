@@ -27,115 +27,97 @@ function init() {}
 init();
 
 const writeDoc = (result) => {
-  let documentTemplate = `## Description:
-  ### ${result.description}
-  
-  ## Table of contents
+  let documentTemplate = `
+# __${result.title}__
 
-- [${result.title}](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+## __Description__
+ ${result.description}
+ 
+<br>
+<hr>
+<br> 
 
+## __Table of contents__
 
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-## Overview
-
-### The challenge
-
-Users should be able to:
-
-- View the optimal layout for the site depending on their device's screen size
-- See hover states for all interactive elements on the page
-
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
-## My process
-
-### Built with
-
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
+<br>
+<hr>
+<br>
 
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### __Installation__
+Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services.
 
-### What I learned
+Get a free API Key at https://example.com
+Clone the repo
+git clone https://github.com/your_username_/Project-Name.git
+Install NPM packages
+npm install
+Enter your API in config.js
+const API_KEY = 'ENTER YOUR API';
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+<br>
+<hr>
+<br>
 
-To see how you can add code snippets, see below:
+### __Usage__
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-\`\`\`html
-<h1>Some HTML code I'm proud of</h1>
-\`\`\`
+For more examples, please refer to the Documentation
 
-\`\`\`css
-.proud-of-this-css {
-  color: papayawhip;
-}
-\`\`\`
+<br>
+<hr>
+<br>
 
-\`\`\`js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-\`\`\`
+### __License__
+Distributed under the MIT License. See LICENSE.txt for more information.
+TODO: (THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
+)
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+<br>
+<hr>
+<br>
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+### __Contributing__
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-### Continued development
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Fork the Project
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+<br>
+<hr>
+<br>
 
-### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+### __Tests__
+### Test instructions
+<br>
+<hr>
+<br>
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+### __Questions__
 
-## Author
-  Your Name
-- Website - [Add your name here](https://www.your-site.com)
+(WHEN I enter my GitHub username
+THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile)
 - GitHub - [yourusername](https://github.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+WHEN I enter my email address
+THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
+- Email - [Add your email here](https://www.your-site.com)
+<br>
+<hr>
+<br>
 
 `;
 
