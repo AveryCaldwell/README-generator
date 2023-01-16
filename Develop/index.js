@@ -1,14 +1,20 @@
 // TODO: Include packages needed for this application
+// Packages
 const fs = require('fs');
 const prompt = require('prompt');
-// const rl = require('readline').createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
+const markdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
+// Array of questions for user input
 const questions = [
-  'What is your title?: ',
-  'What is the description of the project?: ',
+  'What is your title?', //0
+  'What is the description of the project?', //1
+  'What are the installation instructions?', //2
+  'What are examples of how the project can be used? (Screenshots, code examples, demos, and links)', //3
+  'What license was used?', //4
+  'What are the test instructions?', //5
+  'What is your GitHub username?', //6
+  'What is your email?', //7
+  'How can you be reached with additional questions?', //8
 ];
 
 // TODO: Create a function to write README file
@@ -20,115 +26,17 @@ function writeToFile(fileName, data) {
   });
 }
 
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
-
-const writeDoc = (result) => {
-  let documentTemplate = `
-# __${result.title}__
-
-## __Description__
- ${result.description}
- 
-<br>
-<hr>
-<br> 
-
-## __Table of contents__
-
-- [Description](#description)
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [Questions](#questions)
-
-<br>
-<hr>
-<br>
-
-
-### __Installation__
-Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services.
-
-Get a free API Key at https://example.com
-Clone the repo
-git clone https://github.com/your_username_/Project-Name.git
-Install NPM packages
-npm install
-Enter your API in config.js
-const API_KEY = 'ENTER YOUR API';
-
-<br>
-<hr>
-<br>
-
-### __Usage__
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-For more examples, please refer to the Documentation
-
-<br>
-<hr>
-<br>
-
-### __License__
-Distributed under the MIT License. See LICENSE.txt for more information.
-TODO: (THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-)
-
-<br>
-<hr>
-<br>
-
-### __Contributing__
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
-
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull Request
-
-<br>
-<hr>
-<br>
-
-
-### __Tests__
-### Test instructions
-<br>
-<hr>
-<br>
-
-### __Questions__
-
-(WHEN I enter my GitHub username
-THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile)
-- GitHub - [yourusername](https://github.com/yourusername)
-WHEN I enter my email address
-THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-- Email - [Add your email here](https://www.your-site.com)
-<br>
-<hr>
-<br>
-
-`;
-
-  writeToFile('./testREADME.md', documentTemplate);
+// Function that pulls user input and inserts it into the readme
+const writeDoc = (documentTemplate) => {
+  writeToFile('./README.md', documentTemplate);
 };
 
-prompt.start();
+// object of contentsf
+
 let schema = {
   properties: {
     title: {
-      //   pattern: /^[a-zA-Z\s]+$/,
+      //   pattern: /^[a-zA-Z\s]+$/, If case checking is required, this is how to add a regex pattern to check the input
       description: questions[0],
       required: true,
     },
@@ -136,9 +44,40 @@ let schema = {
       description: questions[1],
       required: true,
     },
+    installation: {
+      description: questions[2],
+      required: true,
+    },
+    usage: {
+      description: questions[3],
+      required: true,
+    },
+    license: {
+      description: questions[4],
+      required: true,
+    },
+    tests: {
+      description: questions[5],
+      required: true,
+    },
+    username: {
+      description: questions[6],
+      required: true,
+    },
+    email: {
+      description: questions[7],
+      required: true,
+    },
   },
 };
-prompt.get(schema, (err, result) => {
-  console.log(result);
-  writeDoc(result);
-});
+// TODO: Create a function to initialize app
+function init() {
+  prompt.start();
+  prompt.get(schema, (err, result) => {
+    const documentTemplate = markdown(result);
+    writeDoc(documentTemplate);
+  });
+}
+
+// Function call to initialize app
+init();

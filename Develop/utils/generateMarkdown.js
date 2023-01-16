@@ -1,47 +1,163 @@
 // License object
-const license = {
-  apache: 'https://img.shields.io/badge/License-Apache_2.0-blue.svg',
-  boost: 'https://img.shields.io/badge/License-Boost_1.0-lightblue.svg',
-  IBM: 'https://img.shields.io/badge/License-IPL_1.0-blue.svg',
-  ISC: 'https://img.shields.io/badge/License-ISC-blue.svg',
-  MIT: 'https://img.shields.io/badge/License-MIT-yellow.svg',
-  modzilla: 'https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg',
-  publicDomain: 'https://img.shields.io/badge/License-PDDL-brightgreen.svg',
-};
 
-const renderLicenseBadge;
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-if (license === MIT) {
-  return MIT;
-} else if (license === license.apache) {
-  return apache;
-} else if (license === license.boost) {
-  return boost;
-} else if (license === license.IBM) {
-  return IBM;
-} else if (license === license.ISC) {
-  return ISC;
-} else if (license === license.modzilla) {
-  return modzilla;
-} else if (license === license.publicDomain) {
-  return publicDomain;
-} else if (license === '') {
-  return '';
+// ~~~ needs to be a list of options
+function renderLicenseBadge(license) {
+  const licenseBadge = {
+    apache: 'https://img.shields.io/badge/License-Apache_2.0-blue.svg',
+    boost: 'https://img.shields.io/badge/License-Boost_1.0-lightblue.svg',
+    IBM: 'https://img.shields.io/badge/License-IPL_1.0-blue.svg',
+    ISC: 'https://img.shields.io/badge/License-ISC-blue.svg',
+    MIT: 'https://img.shields.io/badge/License-MIT-yellow.svg',
+    mozilla: 'https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg',
+    publicDomain: 'https://img.shields.io/badge/License-PDDL-brightgreen.svg',
+  };
+  return licenseBadge[license];
 }
 
+//validates license from a list of potential accepted licenses
+function validateLicense(license) {
+  let licenseValidated;
+  switch (license.toLowerCase()) {
+    case 'mit':
+      licenseValidated = 'MIT';
+      break;
+    case 'apache':
+      licenseValidated = 'apache';
+      break;
+    case 'boost':
+      licenseValidated = 'boost';
+      break;
+    case 'ibm':
+      licenseValidated = 'IBM';
+      break;
+    case 'isc':
+      licenseValidated = 'ISC';
+      break;
+    case 'mozilla':
+      licenseValidated = 'mozilla';
+      break;
+    case 'publicdomain':
+      licenseValidated = 'publicdomain';
+      break;
+    default:
+      licenseValidated = '';
+      break;
+  }
+  return licenseValidated;
+}
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-else function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  const licenseLink = {
+    //TODO swap lincense links to links of the license text
+    apache: 'https://opensource.org/licenses/Apache-2.0',
+    boost: 'https://www.boost.org/LICENSE_1_0.txt',
+    ISC: 'https://opensource.org/licenses/ISC',
+    MIT: 'https://opensource.org/licenses/MIT',
+    mozilla: 'https://opensource.org/licenses/MPL-2.0',
+    publicDomain: 'https://opendatacommons.org/licenses/pddl/',
+  };
+  return licenseLink[license];
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  license = validateLicense(license);
+  return license === ''
+    ? ''
+    : `[![License: ${license}](${renderLicenseBadge(
+        license
+      )})](${renderLicenseLink(license)})`;
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `
+# __${data.title}__
+
+
+## __Description__
+
+
+### __${data.description}__
+ 
+
+<br>
+<hr>
+<br> 
+
+## __Table of contents__
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+<br>
+<hr>
+<br>
+
+
+### __Installation__
+${data.installation}
+
+
+<br>
+<hr>
+<br>
+
+### __Usage__
+${data.usage}
+
+<br>
+<hr>
+<br>
+
+### __License__
+The license the application is covered under: ${renderLicenseSection(
+    data.license
+  )} 
+
+<br>
+<hr>
+<br>
+
+### __Contributing__
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
+
+
+- Fork the Project
+- Create your Feature Branch (git checkout -b feature/AmazingFeature)
+- Commit your Changes (git commit -m 'Add some AmazingFeature')
+- Push to the Branch (git push origin feature/AmazingFeature)
+- Open a Pull Request
+
+<br>
+<hr>
+<br>
+
+
+### __Tests__
+${data.tests}
+
+<br>
+<hr>
+<br>
+
+### __Questions__
+
+- GitHub - [${data.username}](https://github.com/${data.username})
+- Email - [${data.email}](${data.email})
+
+<br>
+<hr>
+<br>
 
 `;
 }
