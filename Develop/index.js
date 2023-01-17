@@ -86,11 +86,6 @@ const writeDoc = (documentTemplate) => {
 
 // TODO: Create a function to initialize app
 function init() {
-  // prompt.start();
-  // prompt.get(schema, (err, result) => {
-  //   const documentTemplate = markdown(result);
-  //   writeDoc(documentTemplate);
-  // });
   inquirer
     .prompt(questions)
     .then((answers) => {
@@ -101,9 +96,7 @@ function init() {
     .catch((error) => {
       if (error.isTtyError) {
         console.log(error);
-        // Prompt couldn't be rendered in the current environment
       } else {
-        // Something else went wrong
         console.log(error);
       }
     });

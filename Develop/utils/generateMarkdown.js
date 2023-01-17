@@ -8,13 +8,9 @@ function renderLicenseBadge(license) {
     ISC: 'https://img.shields.io/badge/License-ISC-blue.svg',
     MIT: 'https://img.shields.io/badge/License-MIT-yellow.svg',
     mozilla: 'https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg',
-    // None: ' ',
+    None: '',
   };
-  if (answer === questions(license.choices)) {
-    return ' ';
-  } else {
-    return licenseBadge[license];
-  }
+  return licenseBadge[license];
 }
 
 //validates license from a list of potential accepted licenses
@@ -39,8 +35,8 @@ function validateLicense(license) {
     case 'mozilla':
       licenseValidated = 'mozilla';
       break;
-      // case ' ':
-      // licenseValidated = 'none';
+    case 'none':
+      licenseValidated = 'None';
       break;
     default:
       licenseValidated = '';
@@ -49,7 +45,6 @@ function validateLicense(license) {
   return licenseValidated;
 }
 // TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {
   const licenseLink = {
     apache: 'https://opensource.org/licenses/Apache-2.0',
@@ -57,6 +52,7 @@ function renderLicenseLink(license) {
     ISC: 'https://opensource.org/licenses/ISC',
     MIT: 'https://opensource.org/licenses/MIT',
     mozilla: 'https://opensource.org/licenses/MPL-2.0',
+    None: ' ',
   };
   return licenseLink[license];
 }
@@ -64,8 +60,8 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   license = validateLicense(license);
-  return license === ''
-    ? ''
+  return license === ' '
+    ? ' '
     : `[![License: ${license}](${renderLicenseBadge(
         license
       )})](${renderLicenseLink(license)})`;
@@ -119,9 +115,9 @@ ${data.usage}
 <br>
 
 ### __License__
-The license the application is covered under: ${
+The license the application is covered under:  ${renderLicenseSection(
     data.license
-  } ${renderLicenseSection(data.license)} 
+  )} 
 
 <br>
 <hr>
