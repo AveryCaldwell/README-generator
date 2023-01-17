@@ -1,8 +1,5 @@
-// License object
-
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-// ~~~ needs to be a list of options
 function renderLicenseBadge(license) {
   const licenseBadge = {
     apache: 'https://img.shields.io/badge/License-Apache_2.0-blue.svg',
@@ -11,9 +8,13 @@ function renderLicenseBadge(license) {
     ISC: 'https://img.shields.io/badge/License-ISC-blue.svg',
     MIT: 'https://img.shields.io/badge/License-MIT-yellow.svg',
     mozilla: 'https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg',
-    publicDomain: 'https://img.shields.io/badge/License-PDDL-brightgreen.svg',
+    // None: ' ',
   };
-  return licenseBadge[license];
+  if (answer === questions(license.choices)) {
+    return ' ';
+  } else {
+    return licenseBadge[license];
+  }
 }
 
 //validates license from a list of potential accepted licenses
@@ -38,8 +39,8 @@ function validateLicense(license) {
     case 'mozilla':
       licenseValidated = 'mozilla';
       break;
-    case 'publicdomain':
-      licenseValidated = 'publicdomain';
+      // case ' ':
+      // licenseValidated = 'none';
       break;
     default:
       licenseValidated = '';
@@ -51,17 +52,14 @@ function validateLicense(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   const licenseLink = {
-    //TODO swap lincense links to links of the license text
     apache: 'https://opensource.org/licenses/Apache-2.0',
     boost: 'https://www.boost.org/LICENSE_1_0.txt',
     ISC: 'https://opensource.org/licenses/ISC',
     MIT: 'https://opensource.org/licenses/MIT',
     mozilla: 'https://opensource.org/licenses/MPL-2.0',
-    publicDomain: 'https://opendatacommons.org/licenses/pddl/',
   };
   return licenseLink[license];
 }
-
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
@@ -78,6 +76,7 @@ function generateMarkdown(data) {
   return `
 # __${data.title}__
 
+${renderLicenseSection(data.license)} 
 
 ## __Description__
 
@@ -120,9 +119,9 @@ ${data.usage}
 <br>
 
 ### __License__
-The license the application is covered under: ${renderLicenseSection(
+The license the application is covered under: ${
     data.license
-  )} 
+  } ${renderLicenseSection(data.license)} 
 
 <br>
 <hr>
@@ -131,12 +130,8 @@ The license the application is covered under: ${renderLicenseSection(
 ### __Contributing__
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
+${data.contributing}
 
-- Fork the Project
-- Create your Feature Branch (git checkout -b feature/AmazingFeature)
-- Commit your Changes (git commit -m 'Add some AmazingFeature')
-- Push to the Branch (git push origin feature/AmazingFeature)
-- Open a Pull Request
 
 <br>
 <hr>
@@ -151,6 +146,8 @@ ${data.tests}
 <br>
 
 ### __Questions__
+
+  For any questions, please contact me with the information below:
 
 - GitHub - [${data.username}](https://github.com/${data.username})
 - Email - [${data.email}](${data.email})
