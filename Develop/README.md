@@ -1,7 +1,7 @@
 
 # __test__
 
-[![License: None]()]( ) 
+  
 
 ## __Description__
 
@@ -44,7 +44,7 @@ test
 <br>
 
 ### __License__
-The license the application is covered under:  [![License: None]()]( ) 
+The license the application is covered under:    
 
 <br>
 <hr>

@@ -60,7 +60,7 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   license = validateLicense(license);
-  return license === ' '
+  return license === 'None'
     ? ' '
     : `[![License: ${license}](${renderLicenseBadge(
         license
