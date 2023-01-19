@@ -61,6 +61,8 @@ function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) => {
     if (err) {
       console.error(err);
+    } else {
+      console.log('Successfully generated README.md file!');
     }
   });
 }
