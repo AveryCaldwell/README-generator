@@ -56,8 +56,8 @@ function renderLicenseLink(license) {
   };
   return licenseLink[license];
 }
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+
+//a function that returns the license section of README; If there is no license, return an empty string
 function renderLicenseSection(license) {
   license = validateLicense(license);
   return license === 'None'
@@ -67,7 +67,7 @@ function renderLicenseSection(license) {
       )})](${renderLicenseLink(license)})`;
 }
 
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `
 # __${data.title}__
@@ -100,6 +100,7 @@ ${renderLicenseSection(data.license)}
 
 
 ### __Installation__
+
 ${data.installation}
 
 
@@ -124,8 +125,6 @@ The license the application is covered under:  ${renderLicenseSection(
 <br>
 
 ### __Contributing__
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
-
 ${data.contributing}
 
 
@@ -145,7 +144,9 @@ ${data.tests}
 
   For any questions, please contact me with the information below:
 
-- GitHub - [${data.username}](https://github.com/${data.username})
+- GitHub - [https://github.com/${data.github}](https://github.com/${
+    data.github
+  })
 - Email - [${data.email}](${data.email})
 
 <br>

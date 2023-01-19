@@ -33,7 +33,7 @@ const questions = [
   },
   {
     name: 'license',
-    message: 'Which license was used?',
+    message: 'Which license was used? If license is not listed, select "None"',
     type: 'list',
     choices: ['MIT', 'Apache', 'Boost', 'IBM', 'ISC', 'Mozilla', 'None'],
   },
@@ -58,16 +58,6 @@ const questions = [
     message: 'What is your email?',
     type: 'input',
   },
-  // 'What is your title?', //0
-  // 'What is the description of the project?', //1
-  // 'What are the installation instructions?', //2
-  // 'Provide instructions and examples of your project in use', //3
-  // 'What license was used?', //4
-  // 'What are the test instructions?', //5
-  // 'What is your GitHub username?', //6
-  // 'What is your email?', //7
-  // 'How can you be reached with additional questions?', //8
-  // 'Provide guidelines on how other developers can contribute to your project', //9
 ];
 
 // TODO: Create a function to write README file
