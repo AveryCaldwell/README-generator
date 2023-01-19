@@ -34,7 +34,7 @@ const questions = [
     choices: ['MIT', 'Apache', 'Boost', 'IBM', 'ISC', 'Mozilla', 'None'],
   },
   {
-    name: 'contribution',
+    name: 'contributing',
     message:
       'Provide guidelines on how other developers can contribute to your project',
     type: 'input',
