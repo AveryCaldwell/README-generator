@@ -57,7 +57,8 @@
 ### Links 🔎
 ​
 - Solution URL: [https://github.com/AveryCaldwell/README-generator](https://github.com/AveryCaldwell/README-generator)
-- Video URL: 
+- Video URL: [https://drive.google.com/file/d/1oydn0B6GA8qEhBllSfaHYd1IdaHj9LH8/view](https://drive.google.com/file/d/1oydn0B6GA8qEhBllSfaHYd1IdaHj9LH8/view)
+- Sample README: [https://github.com/AveryCaldwell/README-generator/tree/main/Develop/REAME.md](https://github.com/AveryCaldwell/README-generator/tree/main/Develop/REAME.md)
 <br>
 <hr>
 <br>
