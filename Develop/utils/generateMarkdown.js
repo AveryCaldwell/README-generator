@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Ffunction that returns a license badge based on which license is passed in; If there is no license, return an empty string
 function renderLicenseBadge(license) {
   const licenseBadge = {
     apache: 'https://img.shields.io/badge/License-Apache_2.0-blue.svg',
@@ -13,7 +12,7 @@ function renderLicenseBadge(license) {
   return licenseBadge[license];
 }
 
-//validates license from a list of potential accepted licenses
+// Validates license from a list of potential accepted licenses
 function validateLicense(license) {
   let licenseValidated;
   switch (license.toLowerCase()) {
@@ -44,7 +43,7 @@ function validateLicense(license) {
   }
   return licenseValidated;
 }
-// TODO: Create a function that returns the license link
+// Function that returns the license link
 function renderLicenseLink(license) {
   const licenseLink = {
     apache: 'https://opensource.org/licenses/Apache-2.0',
@@ -57,7 +56,7 @@ function renderLicenseLink(license) {
   return licenseLink[license];
 }
 
-//a function that returns the license section of README; If there is no license, return an empty string
+//Function that returns the license section of README; If there is no license, return an empty string
 function renderLicenseSection(license) {
   license = validateLicense(license);
   return license === 'None'
