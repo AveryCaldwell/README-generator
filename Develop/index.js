@@ -24,7 +24,7 @@ const questions = [
   },
   {
     name: 'usage',
-    message: 'Provide instructions and examples of your project in use',
+    message: 'Provide instructions and examples of your project in use.',
     type: 'input',
   },
   {
@@ -75,7 +75,6 @@ function init() {
   inquirer
     .prompt(questions)
     .then((answers) => {
-      console.log(answers);
       const documentTemplate = markdown(answers);
       writeDoc(documentTemplate);
     })

@@ -73,11 +73,6 @@ function generateMarkdown(data) {
 
 ${renderLicenseSection(data.license)} 
 
-## __Description__
-
-
-### __${data.description}__
- 
 
 <br>
 <hr>
@@ -92,6 +87,12 @@ ${renderLicenseSection(data.license)}
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
+
+
+
+## __Description__
+
+${data.description}
 
 <br>
 <hr>
@@ -108,6 +109,7 @@ ${data.installation}
 <br>
 
 ### __Usage__
+
 ${data.usage}
 
 <br>
@@ -115,7 +117,7 @@ ${data.usage}
 <br>
 
 ### __License__
-The license the application is covered under:  ${renderLicenseSection(
+The license the application is covered under:   ${renderLicenseSection(
     data.license
   )} 
 
@@ -124,6 +126,7 @@ The license the application is covered under:  ${renderLicenseSection(
 <br>
 
 ### __Contributing__
+
 ${data.contributing}
 
 
@@ -133,6 +136,7 @@ ${data.contributing}
 
 
 ### __Tests__
+
 ${data.tests}
 
 <br>
